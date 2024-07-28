@@ -31,6 +31,41 @@ body {
 }
 
 .stall {
-  width: 50;
-  height: 50;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.toiletImg {
+  width: 120px;
+  height: 120px;
+  z-index: -1;
+}
+
+.stallImg {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+.stallText {
+  top: 10px;
+  left: 15px;
+  z-index: 99;
+  font: 1em sans-serif;
+  font-size: 1em;
+  color: whitesmoke;
+  position: relative;
+}
+
+.stallState {
+  top: 70px;
+  left: 10px;
+  width: 100px;
+  z-index: 99;
+  position: relative;
 }

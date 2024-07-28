@@ -16,7 +16,7 @@ export default function Home() {
       <div className="card" style={style}>
         <div className="card-body">
           <Row>
-            <Col><Image src={imgMaleToilet} alt="Male" /></Col>
+            <Col><div className="toiletImg" ><Image className="toiletImg" src={imgMaleToilet} alt="Male" /></div></Col>
             <Col><Stall area={"male"} id={"1"} /></Col>
             <Col><Stall area={"male"} id={"2"} /></Col>
             <Col><Stall area={"male"} id={"3"} /></Col>
@@ -26,7 +26,7 @@ export default function Home() {
       <div className="card" style={style}>
         <div className="card-body">
           <Row>
-            <Col><Image src={imgFemaleToilet} alt="Female" /></Col>
+            <Col><div className="toiletImg" ><Image className="toiletImg" src={imgFemaleToilet} alt="Female" /></div></Col>
             <Col><Stall area={"female"} id={"1"} /></Col>
             <Col><Stall area={"female"} id={"2"} /></Col>
             <Col><Stall area={"female"} id={"3"} /></Col>
@@ -42,7 +42,7 @@ export default function Home() {
       <div className="card" style={style}>
         <div className="card-body">
           <Row>
-            <Col><Image src={imgAccessibleToilet} alt="Accessible" /></Col>
+            <Col><div className="toiletImg" ><Image className="toiletImg" src={imgAccessibleToilet} alt="Accessible" /></div></Col>
             <Col><Stall area={"accessible"} id={"1"} /></Col>
           </Row>
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
       <div className="card" style={style}>
         <div className="card-body">
           <Row>
-            <Col><Image src={imgBabyFeedingArea} alt="Baby" /></Col>
+            <Col><div className="toiletImg" ><Image className="toiletImg" src={imgBabyFeedingArea} alt="Baby" /></div></Col>
             <Col><Stall area={"baby"} id={"1"} /></Col>
           </Row>
         </div>

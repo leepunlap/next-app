@@ -3,14 +3,12 @@
 import mqtt from 'mqtt';
 import React, { useEffect, useState } from 'react';
 
-import { useCartStore } from "./zustand";
+import { toiletInfo } from "./zustand";
 
 const Mqtt = () => {
 
   const [messages, setMessages] = useState(['']);
-  const [cnt, incCount] = useState(0);
-
-  const { cart, add: handleAddToCart } = useCartStore();
+  const { messageCnt, parse: parseMessage } = toiletInfo();
 
   useEffect(() => {
     const mqttOptions = { host: '192.168.48.22', port: 8080 };
@@ -21,28 +19,20 @@ const Mqtt = () => {
       });
     });
     client.on("message", (topic, message) => {
+      parseMessage(topic, message.toString());
       setMessages([new Date().toString(), topic, message.toString()]);
     });
   }, []); // only run this effect on mount on the client side
 
 
-  useEffect(() => {
-    incCount(cnt + 1);
-    console.log("messageCnt:" + cnt.toString());
-  }, [messages]);
+  // useEffect(() => {
+  //   addMessageCount();
+  //   console.log(messageCnt);
+  // }, [messages]);
 
   return (
     <div>
-      <h2>Received Messages ： </h2>
-      <pre>
-        {cart}
-      </pre>
-      <button onClick={handleAddToCart}>
-        Add To Cart
-      </button>
-      <ul>
-        MessageCnt: {cnt.toString()}
-      </ul>
+      MessageCnt: {messageCnt}
       <ul>
         {messages.map((message) => (
           <li key={Math.random()}>{message.toString()}</li>
