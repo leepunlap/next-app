@@ -10,7 +10,7 @@ export default function Stall({ area, id }: { area: string, id: string }) {
   var myStall: StallStruct = (area === 'male') ? stalls.male[ndx] : (area === 'female') ? stalls.female[ndx] : (area === 'accessible') ? stalls.accessible[ndx] : stalls.baby[ndx];
 
   var className = "stallState badge "
-  className += (myStall.state === 'unknown') ? "bg-secondary" : "bg-primary";
+  className += (myStall.state === 'unknown') ? "bg-secondary" : (myStall.state === 'occupied') ? "bg-danger" : (myStall.state === 'idle') ? "bg-success" : "bg-primary";
   return (
     <div className="stall">
       <div className="stallText">

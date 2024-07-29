@@ -31,10 +31,25 @@ export const toiletInfo = create<CartStore>((set, get) => ({
       var myStall: StallStruct[] = (area === 'male') ? stalls.male : (area === 'female') ? stalls.female : (area === 'accessible') ? stalls.accessible : stalls.baby;
       myStall.flatMap((x: StallStruct) => {
         if (deviceId === x.door) {
-          console.log(messageCnt, deviceId, 'door', x.name, message);
+          if (message.length == 36) {
+            var bDoorOpen = (message[35] == '0') ? false : true;
+            var sDoorStatus = bDoorOpen ? "occupied" : "idle";
+            x.state = sDoorStatus;
+            console.log(messageCnt, deviceId, 'door', x.name, bDoorOpen);
+          } else {
+            console.log(messageCnt, deviceId, 'door', x.name, message, message.length, "error");
+          }
         }
         if (deviceId === x.pir) {
-          console.log(messageCnt, deviceId, 'pir', x.name, message);
+          if (message.length == 34) {
+            var bMotion = (message[27] == '0') ? false : true;
+            var sMotionStatus = bMotion ? "occupied" : "idle";
+            x.state = sDoorStatus;
+            console.log(messageCnt, deviceId, 'door', x.name, bDoorOpen);
+          } else {
+            console.log(messageCnt, deviceId, 'door', x.name, message, message.length, "error");
+          }
+          console.log(messageCnt, deviceId, 'pir', x.name, message, message.length, message[29]);
         }
       });
     }

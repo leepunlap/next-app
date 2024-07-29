@@ -11,7 +11,7 @@ const Mqtt = () => {
   const { messageCnt, parse: parseMessage } = toiletInfo();
 
   useEffect(() => {
-    const mqttOptions = { host: '192.168.48.22', port: 8080 };
+    const mqttOptions = { host: 'roadlogica.fortiddns.com', port: 8080 };
     const client = mqtt.connect(mqttOptions);
     client.on("connect", () => {
       client.subscribe("#", (err) => {
