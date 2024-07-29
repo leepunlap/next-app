@@ -69,3 +69,11 @@ body {
   z-index: 99;
   position: relative;
 }
+
+.motionState {
+  top: -40px;
+  left: 45px;
+  width: 67px;
+  z-index: 99;
+  position: relative;
+}
